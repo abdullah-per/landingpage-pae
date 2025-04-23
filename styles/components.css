@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Backgrounds */
+    --color-background: #F7F7F8;
+
+    /* Text colors */
+    --color-text-main: #1A1A1A;     /* Primary heading text */
+    --color-text-sub: #6E6E73;      /* Secondary text / description */
+
+    /* Buttons */
+    --color-button-bg: #000000;
+    --color-button-text: #FFFFFF;
+    --color-button2-bg: white;
+    --color-button2-text: black;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--color-text-sub);
+}
+
+h1 {
+    font-size: 58px;
+    line-height: 63.8px;
+    letter-spacing: -2.5px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.subtle {
+    color: var(--color-text-sub);
+}
+
+.highlight {
+    color: #FF0000;
+    background-image: radial-gradient(circle, #FF0000 50%, #000000 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.f-20 {
+    font-size: 20px;
+}
+
+/* Styling */
+body {
+    background-color: var(--color-background);
+}
+
+/* Elements */
+.btn-1 {
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
+    transition: all 0.15s;
+}
+
+.btn-1:hover {
+    transform: scale(1.025);
+}
+
+.btn-1:active {
+    transform: scale(0.97);
+}
+
+.btn-2 {
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    outline: 1px solid grey;
+    border-radius: 12px;
+    padding: 10px 20px;
+    color: var(--color-button2-text);
+    background-color: var(--color-button2-bg);
+    transition: all 0.15s;
+}
+
+.btn-2:hover {
+    transform: scale(1.025);
+}
+
+.btn-2:active {
+    transform: scale(0.97);
+}
+
+
+.chat {
+    width: 750px;
+    height: 250px;
+    border-radius: 8px;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link {
+    color: var(--color-text-sub);
+}
+
+.link:hover {
+    box-sizing: content-box;
+    color: var(--color-primary);
+    background-color: #ebebed;
+    outline: 8px solid #ebebed;
+    border-radius: 6px;
+}
+
+
+
+.example-2 {
+    list-style-type: none;
+    transform: scale(0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+    color: white;
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+    background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+    background-color: #24262a;
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+    );
+}
+
+.example-2 .icon-content a[data-social="x"] .filled,
+.example-2 .icon-content a[data-social="x"] ~ .tooltip {
+    background-color: black;
+}
