@@ -10,6 +10,9 @@
     /* Backgrounds */
     --color-background: #F7F7F8;
 
+    /* Primary */
+    --color-primary: #FF312E;
+
     /* Text colors */
     --color-text-main: #1A1A1A;     /* Primary heading text */
     --color-text-sub: #6E6E73;      /* Secondary text / description */
@@ -40,6 +43,10 @@ h1 {
     letter-spacing: -2.5px;
 }
 
+h3 {
+    font-size: 24px;
+}
+
 p {
     font-size: 18px;
 }
@@ -53,12 +60,45 @@ p {
 }
 
 .highlight {
-    color: #FF0000;
-    background-image: radial-gradient(circle, #FF0000 50%, #000000 100%);
+    color: transparent;
     background-clip: text;
+    background: radial-gradient(circle, var(--color-primary), #BA1BE6);
+    animation: highlightAnim 5s linear infinite;
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+@keyframes highlightAnim {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+.fadeUp {
+    animation: fadInUp 1.5s;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
 
 .f-20 {
     font-size: 20px;
