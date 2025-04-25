@@ -1,0 +1,114 @@
+.orbit-parent {
+    display: flex;
+    width: 200px; /* change to adjust parent size */
+    height: 200px; /* change to adjust parent size */
+}
+
+:root {
+    --orbit1: 600px;
+    --orbit2: 800px;
+    --orbit3: 1000px;
+    --orbit4: 1200px;
+    --orbit5: 1400px;
+    overflow-x: hidden;
+}
+
+/* Static orbit outline */
+.orbit-outline {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #DADADA;
+    border-radius: 50%;
+}
+
+/* Rotates around the center of the parent */
+.rotator {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+}
+
+/* Orbiter centered on the circle's edge */
+.orbiting-element {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 15px; /* object size */
+    height: 15px;
+    background: radial-gradient(circle, var(--color-primary), #BA1BE6);
+    background-size: 200% 200%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/*  */
+.orbit-outline--one {
+    width: var(--orbit1); /* change to adjust orbit size */
+    height: var(--orbit1); /* change to adjust orbit size */
+}
+
+.rotator--one {
+    width: var(--orbit1); /* must match orbit-outline */
+    height: var(--orbit1); /* must match orbit-outline */
+    animation: rotate 7s linear infinite;
+}
+
+.orbit-outline--two {
+    width: var(--orbit2); /* change to adjust orbit size */
+    height: var(--orbit2); /* change to adjust orbit size */
+}
+
+.rotator--two {
+    width: var(--orbit2); /* must match orbit-outline */
+    height: var(--orbit2); /* must match orbit-outline */
+    animation: rotate 6.7s linear infinite;
+}
+
+.orbit-outline--three {
+    width: var(--orbit3); /* change to adjust orbit size */
+    height: var(--orbit3); /* change to adjust orbit size */
+}
+
+.rotator--three {
+    width: var(--orbit3); /* must match orbit-outline */
+    height: var(--orbit3); /* must match orbit-outline */
+    animation: rotate 6.4s linear infinite;
+}
+
+.orbit-outline--four {
+    width: var(--orbit4); /* change to adjust orbit size */
+    height: var(--orbit4); /* change to adjust orbit size */
+}
+
+.rotator--four {
+    width: var(--orbit4); /* must match orbit-outline */
+    height: var(--orbit4); /* must match orbit-outline */
+    animation: rotate 6.1s linear infinite;
+}
+
+.orbit-outline--five {
+    width: var(--orbit5); /* change to adjust orbit size */
+    height: var(--orbit5); /* change to adjust orbit size */
+}
+
+.rotator--five {
+    width: var(--orbit5); /* must match orbit-outline */
+    height: var(--orbit5); /* must match orbit-outline */
+    animation: rotate 5.8s linear infinite;
+}
+
+
+
+@keyframes rotate {
+    from {
+    transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+    transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

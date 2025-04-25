@@ -6,7 +6,10 @@
 
     <link rel="stylesheet" href="styles/sections.css">
     <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/orbit.css">
+
+    <script defer src="scripts/CellAnim.js"></script>
+    <script defer src="scripts/Switcher.js"></script>
 
     <title>The OS for Decision Support</title>
 </head>
@@ -24,11 +27,44 @@
 
     <div class="frontground">
         <div class="section-1">
-            <p>Built for the Next Era of Leadership</p>
-            <h1>Predictive Analytics for <span class="highlight">Smarter Decisions</span></h1>
-            <p>Turn your data into real-time, actionable forecasts. Move faster, stay ahead, scale without chaos.</p>
+            <div class="orbit-parent">
+                <div class="orbit-outline orbit-outline--one"></div> <!-- stays static -->
+                    <div class="rotator rotator--one">             <!-- rotates -->
+                    <div class="orbiting-element"></div>
+                </div>
 
-            <div class="chat"></div>
+                <div class="orbit-outline orbit-outline--two"></div> <!-- stays static -->
+                    <div class="rotator rotator--two">             <!-- rotates -->
+                    <div class="orbiting-element"></div>
+                </div>
+
+                <div class="orbit-outline orbit-outline--three"></div> <!-- stays static -->
+                    <div class="rotator rotator--three">             <!-- rotates -->
+                    <div class="orbiting-element"></div>
+                </div>
+
+                <div class="orbit-outline orbit-outline--four"></div> <!-- stays static -->
+                    <div class="rotator rotator--four">             <!-- rotates -->
+                    <div class="orbiting-element"></div>
+                </div>
+
+                <div class="orbit-outline orbit-outline--five"></div> <!-- stays static -->
+                    <div class="rotator rotator--five">             <!-- rotates -->
+                    <div class="orbiting-element"></div>
+                </div>
+            </div>
+
+            <div class="hero-front">
+                <p>Built for the Next Era of Leadership</p>
+                <h1>Predictive Analytics for <span class="highlight">Smarter Decisions</span></h1>
+                <p>Turn your data into real-time, actionable forecasts. Move faster, stay ahead, scale without chaos.</p>
+
+                <div class="chat">
+
+                </div>
+
+                <div class="blur"></div>
+            </div>
         </div>
 
         <div class="section-2">
@@ -102,14 +138,13 @@
             <div class="switcher">
                 <h1 class="flex" style="gap: 12px;">The <span class="highlight">PAE™</span> Solution</h1>
 
-                <div class="switcher--nav"></div>
                 <div class="switcher--content">
                     <nav>
                         <ul class="flex">
-                            <li><button class="btn-2"></button></li>
-                            <li><button class="btn-2"></button></li>
-                            <li><button class="btn-1"></button></li>
-                            <li><button class="btn-2"></button></li>
+                            <li><button class="current option" id="one"></button></li>
+                            <li><button class="option" id="two"></button></li>
+                            <li><button class="option" id="three"></button></li>
+                            <li><button class="option" id="four"></button></li>
                         </ul>
                     </nav>
 
@@ -328,27 +363,41 @@
                 <form action="https://formsubmit.co/185f7830286f22966912ca76b641d6fe" method="POST">
                     <div class="contact-row">
                         <label for="fname"><p class="bold">First name:</p></label>
-                        <input type="text" name="fname" id="fname" placeholder="John">
+                        <input class="subtle" type="text" name="fname" id="fname" placeholder="-">
                     </div>
                     <div class="contact-row">
                         <label for="lname"><p class="bold">Last name:</p></label>
-                        <input type="text" name="lname" id="lname" placeholder="Doe">
+                        <input class="subtle" type="text" name="lname" id="lname" placeholder="-">
                     </div>
                     <div class="contact-row">
                         <label for="email"><p class="bold">Email:</p></label>
-                        <input type="text" name="email" id="email" placeholder="johndoe@example.com">
+                        <input class="subtle" type="text" name="email" id="email" placeholder="-">
                     </div>
                     <div class="contact-row">
                         <label for="message"><p class="bold">Message:</p></label>
-                        <input type="text" name="message" id="message">
+                        <input class="subtle" type="text" name="message" id="message">
                     </div>
 
                     <button type="submit" class="btn-1" style="width: 40%; justify-self: center; margin-top: 18px;">Send</button>
                 </form>
             </div>
+
+            <div class="contact-columns">
+                <div class="columns2--column"></div>
+                <div class="columns2--column"></div>
+                <div class="columns2--column"></div>
+
+                <div class="columns2--column"></div>
+                <div class="columns2--column"></div>
+                <div class="columns2--column"></div>
+
+                <div class="columns2--column"></div>
+            </div>
         </div>
 
         <div class="section-6">
+            <h1>Predictive Analytics Engines™</h1>
+
             <ul class="example-2">
                 <li class="icon-content">
                   <a

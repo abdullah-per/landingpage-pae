@@ -49,14 +49,25 @@
 /*  */
 .section-1 {
     display: grid;
+    grid-template-areas: "space";
+}
+
+.orbit-parent {
+    grid-area: space;
+}
+
+.hero-front {
+    z-index: 1;
+    grid-area: space;
+    display: grid;
     justify-items: center;
 }
 
-.section-1 :first-child {
+.hero-front :first-child {
     margin-top: 150px;
 }
 
-.section-1 h1 {
+.hero-front h1 {
     text-align: center;
     max-width: 800px;
 
@@ -64,20 +75,35 @@
     margin-bottom: 24px;
 }
 
-.section-1 p {
+.hero-front p {
     text-align: center;
-    max-width: 648px;
+    max-width: 624px;
+}
+
+.blur {
+    width: 100%;
+    height: 192px;
+    background: #F7F7F8;
+    background: linear-gradient(0deg, rgba(247, 247, 248, 1) 0%, rgba(247, 247, 248, 1) 47%, rgba(237, 221, 83, 0) 100%);
 }
 
 .chat {
-    margin-top: 60px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    height: 275px;
+    width: 600px;
+    display: grid;
+    border-radius: 12px;
+    grid-template-rows: 1fr 1fr;
+    background-color: var(--color-background);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
+
 
 /*  */
 .grids {
     width: 100%;
     height: 1000px;
-    margin-top: 96px;
     display: grid;
     grid-template-columns: 0.5fr 3fr 3fr 3fr 3fr 3fr 0.5fr;
     grid-template-rows: repeat(5, 200px);
@@ -86,6 +112,7 @@
                          ".. .. d e f .. .."
                          ".. .. g h i .. .."
                          ".. .. .. .. .. .. ..";
+    background-color: var(--color-background);
 }
 
 .grids h2 {
@@ -131,6 +158,13 @@
 .grids--grid {
     outline: 2px solid #DADADA;
     margin: 1px;
+    background-color: var(--color-background);
+    z-index: 1;
+    transition: all 2.5s;
+}
+
+.grids--grid:hover {
+    background-color: #dfdfdf;
 }
 
 /*  */
@@ -144,28 +178,34 @@
 .switcher {
     outline: 1px solid #DADADA;
     border-radius: 12px;
-    max-width: 700px;
+    min-width: 500px;
     z-index: 2;
     grid-area: space;
     align-self: center;
     justify-self: center;
-    padding: 50px 30px 30px 30px;
+    text-align: center;
+    padding: 40px 80px 40px 80px;
     background-color: var(--color-background);
 }
 
 .switcher h1 {
     font-size: 44px;
-    margin-bottom: 36px;
+    margin-bottom: 42px;
 }
 
 .switcher--content nav {
-    transform: scale(0.75);
+    margin-top: 0;
 }
 
 .switcher--text {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 6px;
+}
+
+.switcher--text p {
+    width: 400px;
 }
 
 .columns {
@@ -197,18 +237,20 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    column-gap: 120px;
+    column-gap: 138px;
     row-gap: 30px;
 }
 
 .pae-map--item {
+    outline: 1px solid #DADADA;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 350px;
-    padding: 25px;
-    background: radial-gradient(circle, var(--color-background), transparent);
+    width: 400px;
+    padding: 24px 40px;
+    background: white;
     justify-self: end;
 }
 
@@ -224,29 +266,45 @@
     outline: 2px solid #DADADA;
     margin: 1px;
     display: flex;
-    justify-content: center;
+    padding-left: 18px;
     align-items: center;
+    text-align: left;
 }
 
 /*  */
 .section-5 {
     display: grid;
-    justify-content: center;
+    grid-template-areas: "spacetwo";
+}
+
+.contact-columns {
+    grid-area: spacetwo;
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 3fr 3fr 3fr 3fr 0.5fr;
+}
+
+.columns2--column {
+    outline: 2px solid #DADADA;
+    margin: 1px;
 }
 
 .contact-form {
-    margin: 120px;
+    z-index: 1;
+    grid-area: spacetwo;
+    margin: 120px auto 180px auto;
     padding: 30px 40px 30px 40px;
     border-radius: 12px;
-    outline: 2px solid #DADADA;
+    outline: 1px solid #DADADA;
     display: grid;
     justify-content: center;
     text-align: center;
     gap: 24px;
+    background-color: var(--color-background);
 }
 
 .contact-row {
     display: flex;
+    align-items: center;
     justify-content: end;
     gap: 24px;
 }
@@ -257,7 +315,7 @@ form {
 }
 
 input {
-    padding: 5px 5px;
+    padding: 6px 12px;
     font-size: 18px;
     border-radius: 6px;
     border: 2px solid #DADADA;
@@ -266,11 +324,22 @@ input {
 
 /*  */
 .section-6 {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
     gap: 8px;
-    justify-content: center;
-    padding: 25px 0 100px 0;
+    padding: 60px 0 24px 0;
     background-color: #292929;
+}
+
+.section-6 h1 {
+    color: #4E4E50;
+    margin-bottom: 60px;
+}
+
+.section-6 ul {
+    margin-bottom: 18px;
 }
 
 .section-6 p {
