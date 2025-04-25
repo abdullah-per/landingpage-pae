@@ -162,7 +162,7 @@ function CellScramble() {
     }
 
     async function Scramble(element, column) {
-        await sleep(Math.random()*25000);
+        await sleep(Math.random()*15000);
 
         const goal = gridData[column-1][Math.floor(Math.random() * (gridData[column-1].length))];
 
@@ -173,7 +173,7 @@ function CellScramble() {
             element.innerHTML = completion + returnRandomString(goal.length - completion.length - 1);
 
             if (completion.length >= goal.length) {
-                await sleep(15000 + Math.random()*25000)
+                await sleep(5000 + Math.random()*25000)
                 completion = "";
                 count = 0;
             } else {
@@ -190,12 +190,13 @@ function CellScramble() {
     return Scramble;
 }
 
-let seen = false;
+let seen = 0;
 const editableCellList = document.querySelectorAll(".scramble-anim");
 const scrambler = CellScramble();
 
 const observer = new IntersectionObserver((entries, observer) => {
-    if (seen) { return }
+    seen += 1;
+    if (!(seen > 1 && seen <= 2)) { return }
 
     seen = true;
     let column = 0;
