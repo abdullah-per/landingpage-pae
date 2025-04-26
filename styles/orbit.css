@@ -5,10 +5,10 @@
 }
 
 :root {
-    --orbit1: 600px;
-    --orbit2: 800px;
-    --orbit3: 1000px;
-    --orbit4: 1200px;
+    --orbit1: 800px;
+    --orbit2: 950px;
+    --orbit3: 1100px;
+    --orbit4: 1250px;
     --orbit5: 1400px;
     overflow-x: hidden;
 }
