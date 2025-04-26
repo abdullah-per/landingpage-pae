@@ -176,15 +176,17 @@ function CellScramble() {
         let completion = "";
         let count = 0;
         while (true) {
-            await sleep(75);
+            await sleep(25);
+            element.style.color = "inherit";
             element.innerHTML = completion + returnRandomString(goal.substring(completion.length));
 
             if (completion.length >= goal.length) {
+                element.style.color = "#cccaca";
                 await sleep(5000 + Math.random()*25000)
                 completion = "";
                 count = 0;
             } else {
-                if (count >= 3) {
+                if (count >= 2) {
                     completion += goal[completion.length];
                     count = 0;
                 }
