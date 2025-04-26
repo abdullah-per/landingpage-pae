@@ -150,13 +150,20 @@ function CellScramble() {
         ]
     ];
 
-    function returnRandomString(length) {
-        const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+    function returnRandomString(string) {
+        const letters = "abcdefghijklmnopqrstuvwxyz/\\".split("");
+        const splitStr = string.split(" ");
         let retValue = "";
 
-        for (let i = 0; i <= length; i++) {
-            retValue += letters[Math.floor(Math.random()*letters.length)];
-        }
+        splitStr.forEach((element) => {
+            for (let i = 0; i < element.length; i++) {
+                retValue += letters[Math.floor(Math.random()*letters.length)];
+            }
+
+            retValue += " ";
+        })
+
+
 
         return retValue;
     }
@@ -169,8 +176,8 @@ function CellScramble() {
         let completion = "";
         let count = 0;
         while (true) {
-            await sleep(50);
-            element.innerHTML = completion + returnRandomString(goal.length - completion.length - 1);
+            await sleep(75);
+            element.innerHTML = completion + returnRandomString(goal.substring(completion.length));
 
             if (completion.length >= goal.length) {
                 await sleep(5000 + Math.random()*25000)

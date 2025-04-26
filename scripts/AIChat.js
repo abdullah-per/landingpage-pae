@@ -2,7 +2,7 @@ const chatOutput = document.querySelector(".chat--output");
 const chatInput = document.querySelector("#chat");
 const chatForm = document.querySelector(".chat--form");
 
-deepseek/deepseek-r1:free
+// deepseek/deepseek-r1:free
 
 
 
