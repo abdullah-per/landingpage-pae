@@ -30,7 +30,7 @@ Core offerings:
 `;
 
 async function chatWithOpenRouter(userPrompt) {
-    const apiKey = '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';
+    const apiKey = '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';
     const endpoint = 'https://openrouter.ai/api/v1/chat/completions';
     const model = 'mistralai/mistral-7b-instruct'; // or another low-cost option
 
@@ -39,7 +39,7 @@ async function chatWithOpenRouter(userPrompt) {
         headers: {
             'Authorization': `Bearer ${apiKey}`,
             'Content-Type': 'application/json',
-            'HTTP-Referer': 'http://localhost', // Replace in production
+            'HTTP-Referer': 'https://yourname.github.io', // Replace in production
             'X-Title': 'Minimal Chat'
         },
         body: JSON.stringify({
