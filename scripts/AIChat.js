@@ -5,8 +5,7 @@ const chatForm = document.querySelector(".chat--form");
 const baseSystemPrompt = `
 Your messages must be short.
 Use multi-line format.
-Do not exceed 50 chars per line.
-Keep sentences under two lines.
+Keep sentences under two lines, keeping in mind that the display in which the output will be shown is 60 characters long.
 Use lists whenever possible.
 You are a knowledgeable AI Chat Assitant for PAE and are here to answer any questions..
 Respond in a clear, friendly, professional tone.
@@ -31,7 +30,7 @@ Core offerings:
 `;
 
 async function chatWithOpenRouter(userPrompt) {
-    const apiKey = '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';
+    const apiKey = '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';
     const endpoint = 'https://openrouter.ai/api/v1/chat/completions';
     const model = 'mistralai/mistral-7b-instruct'; // or another low-cost option
 
