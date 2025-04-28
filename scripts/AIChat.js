@@ -29,8 +29,10 @@ Core offerings:
 3. Smart ERP Modules
 `;
 
+
+
 async function chatWithOpenRouter(userPrompt) {
-    const apiKey = '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';
+    const apiKey = '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';
     const endpoint = 'https://openrouter.ai/api/v1/chat/completions';
     const model = 'mistralai/mistral-7b-instruct'; // or another low-cost option
 
@@ -39,7 +41,7 @@ async function chatWithOpenRouter(userPrompt) {
         headers: {
             'Authorization': `Bearer ${apiKey}`,
             'Content-Type': 'application/json',
-            'HTTP-Referer': 'http://abdullah-per/github.io', // Replace in production
+            'HTTP-Referer': 'http://localhost', // Replace in production
             'X-Title': 'Minimal Chat'
         },
         body: JSON.stringify({
