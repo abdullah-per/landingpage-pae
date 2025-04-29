@@ -30,38 +30,31 @@ Core offerings:
 `;
 
 
+async function chatWithBackend(prompt) {
+    const backendURL = "https://pae-chat-975843523063.us-central1.run.app/";
 
-async function chatWithOpenRouter(userPrompt) {
-    const apiKey = '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';
-    const endpoint = 'https://openrouter.ai/api/v1/chat/completions';
-    const model = 'mistralai/mistral-7b-instruct'; // or another low-cost option
-
-    const response = await fetch(endpoint, {
+    try {
+      const response = await fetch(backendURL, {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Content-Type': 'application/json',
-            'HTTP-Referer': 'http://localhost', // Replace in production
-            'X-Title': 'Minimal Chat'
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            model: model,
-            messages: [
-                { role: 'system', content: baseSystemPrompt.trim() },
-                { role: 'system', content: businessInfoPrompt.trim() },
-                { role: 'user', content: userPrompt.trim() }
-            ]
-        })
-    });
+        body: JSON.stringify({ prompt: prompt })
+      });
 
-    if (!response.ok) {
-        const error = await response.text();
-        throw new Error(`API Error: ${error}`);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Backend Error: ${errorText}`);
+      }
+
+      const data = await response.json();
+      console.log(data.reply.candidates[0].content.parts[0].text);
+      return data.reply.candidates[0].content.parts[0].text;
+
+    } catch (error) {
+      console.error('Fetch error:', error.message);
+      throw error; // Re-throw so your UI can handle/display errors if needed
     }
-
-    const data = await response.json();
-    console.log(data.choices[0].message.content);
-    return data.choices[0].message.content;
 }
 
 
@@ -86,7 +79,7 @@ chatForm.addEventListener("submit", (event) => {
         const newText = document.createElement("p");
         newText.innerText = "Thinking..."
 
-        chatWithOpenRouter(chatInput.value)
+        chatWithBackend(chatInput.value)
             .then(reply => {
                 newText.innerText = reply;
             })
