@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
 * {
     margin: 0;
@@ -62,7 +63,7 @@ p {
 .highlight {
     color: transparent;
     background-clip: text;
-    background: radial-gradient(circle, var(--color-primary), #BA1BE6);
+    background: radial-gradient(circle, var(--color-primary), #e70953);
     animation: highlightAnim 5s linear infinite;
     background-size: 200% 200%;
     -webkit-background-clip: text;
